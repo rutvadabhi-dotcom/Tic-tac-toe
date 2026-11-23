@@ -17,18 +17,28 @@ int main()
             printf("Player 1, enter the row and column (1-3) to place O: ");
             scanf("%d%d",&row,&column);
 
-            if(arr[row-1][column-1]=='-')
+            if(row<4 && row>0 && column<4 && column>0)
             {
-                arr[row-1][column-1]='O';
-            }
+                if(arr[row-1][column-1]=='-')
+                {
+                    arr[row-1][column-1]='O';
+                }
+                else
+                {
+                    printf("Invalid move, try again.\n");
+                    i--;
+                    continue;
+                }
+                display_board();
+            } 
             else
             {
-                printf("Invalid move, try again.\n");
+                printf("Invalid move, try again\n");
                 i--;
                 continue;
-            }  
+            } 
 
-            display_board();
+            
         }
         else
         {
@@ -36,16 +46,25 @@ int main()
             printf("Player 2, enter the row and column (1-3) to place X: ");
             scanf("%d%d",&row,&column);
 
-            if(arr[row-1][column-1]=='-')
+            if(row<4 && row>0 && column<4 && column>0)
             {
-                arr[row-1][column-1]='X';
+                if(arr[row-1][column-1]=='-')
+                {
+                    arr[row-1][column-1]='X';
+                }
+                else
+                {
+                    printf("Invalid move, try again.\n");
+                    i--;
+                    continue;
+                }  
+                display_board();
             }
             else
             {
                 printf("Invalid move, try again.\n");
                 i--;
-            }  
-            display_board();
+            }
         }
         
     }
